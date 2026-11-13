@@ -1,0 +1,100 @@
+================================================================================
+VISION PILOT — DUAL-HAND GESTURE FLIGHT & COMBAT MANUAL
+================================================================================
+
+This guide provides a comprehensive breakdown of the computer vision dual-hand
+gesture controls, mathematical mechanics, physical posture tips, and fallback
+keybindings for "Vision Pilot".
+
+--------------------------------------------------------------------------------
+1. CAMERA SETUP & POSTURE RECOMMENDATIONS
+--------------------------------------------------------------------------------
+- Position yourself roughly 0.5 to 1.0 meter (2 to 3 feet) in front of your webcam.
+- Ensure your chest and both hands are comfortably in the webcam's field of view.
+- Maintain good, even lighting so MediaPipe can track finger joints with high confidence.
+- Press [C] at any time while holding your hands in neutral flight posture to zero-calibrate.
+
+--------------------------------------------------------------------------------
+2. RIGHT HAND — FLIGHT YOKE & WEAPON TRIGGER
+--------------------------------------------------------------------------------
+Your physical RIGHT HAND acts as the primary flight yoke and blaster trigger.
+
+A. CROSSHAIR / AIMING RETICLE
+   - How it works: Move your open or closed right hand across the right side of the frame.
+   - Landmark: Middle Knuckle / Palm Center (Landmark 9).
+   - Dynamic: Moving your hand up/down/left/right steers the cyan targeting reticle
+     and automatically locks onto hostile drones within range.
+
+B. ROLL ATTITUDE (BANKING WINGS)
+   - How it works: Tilt your hand to the left or right like an aircraft wing.
+   - Landmark: Angle formed between Wrist (L0) and Middle Knuckle (L9).
+   - Mathematical Formula: theta = atan2(y9 - y0, x9 - x0) - pi/2
+   - Action:
+     * Tilt Hand Clockwise (Right) -> Banks aircraft RIGHT, rotates artificial horizon.
+     * Tilt Hand Counter-Clockwise (Left) -> Banks aircraft LEFT.
+     * Level Hand -> Stabilizes wings horizontally.
+
+C. PITCH ATTITUDE (NOSE CLIMB / NOSE DIVE)
+   - How it works: Raise or lower your hand relative to your calibrated center.
+   - Action:
+     * Raise Hand Higher -> Nose pitches UP (Climbing attitude).
+     * Lower Hand -> Nose pitches DOWN (Diving attitude).
+     * Hold at Center Height -> Level flight.
+
+D. LASER TRIGGER (SHOOTING CANNONS)
+   - How it works: Make a "Gun" / "Point" gesture.
+   - Landmark: Index Finger Tip (L8) extended while Middle, Ring, and Pinky are curled into palm.
+   - Metric: Index tip distance > 1.25x palm size from wrist; other fingers curled.
+   - Action:
+     * Extend Index Finger -> Rapidly discharges twin wingtip laser cannons.
+     * Relax / Curl Index Finger -> Ceases fire.
+
+--------------------------------------------------------------------------------
+3. LEFT HAND — THROTTLE & ENERGY DEFLECTOR SHIELD
+--------------------------------------------------------------------------------
+Your physical LEFT HAND controls propulsion speed and defensive shield activation.
+
+A. THROTTLE (0% TO 100% FORWARD VELOCITY)
+   - How it works: Raise or lower your left wrist vertically.
+   - Landmark: Left Wrist (Landmark 0).
+   - Inverted Height Remapping:
+     * Raise Left Hand High (near top of frame) -> Full Afterburner (100% Throttle, Mach 1.45).
+     * Lower Left Hand (near bottom of frame) -> Idle Cruise (0% Throttle, Mach 0.35).
+     * Center Position -> 50% Throttle (Cruising speed ~600 KTS).
+
+B. DEFLECTOR ENERGY SHIELD
+   - How it works: Open your entire left hand flat (all 4 fingers extended outwards).
+   - Landmark: Index (L8), Middle (L12), Ring (L16), and Pinky (L20) tips extended > 1.2x palm size.
+   - Action:
+     * Open Flat Palm -> Deploys glowing cyan deflector shield bubble.
+       - Absorbs 100% of enemy plasma bolts.
+       - Absorbs direct drone collision impact damage.
+       - Drains shield energy while held active.
+     * Clench Fist or Lower Hand -> Shield disengages, energy recharges automatically.
+
+--------------------------------------------------------------------------------
+4. STATUS TELEMETRY IN PICTURE-IN-PICTURE (BOTTOM-RIGHT)
+--------------------------------------------------------------------------------
+The cybernetic viewport in the bottom-right corner displays real-time tracking badges:
+- "YOKE: OK" / "YOKE: NO"    -> Right hand tracking status.
+- "THRTL: OK" / "THRTL: NO"  -> Left hand tracking status.
+- "[FIRE]" (Red badge)       -> Primary laser trigger currently firing.
+- "[SHIELD]" (Cyan badge)    -> Deflector shield matrix currently active.
+
+--------------------------------------------------------------------------------
+5. KEYBOARD & MOUSE FALLBACK HOTKEYS
+--------------------------------------------------------------------------------
+If you do not have a webcam or prefer manual controls, press [TAB] to toggle:
+
+- Mouse Movement: Aim Crosshair / Reticle.
+- Left Mouse Button or [SPACE]: Fire Laser Cannons.
+- Mouse Scroll Wheel or [LSHIFT] / [LCTRL]: Increase / Decrease Throttle.
+- Right Mouse Button or [Q] / [E]: Deploy Deflector Shield.
+- [A] / [D] or Left / Right Arrows: Bank Roll.
+- [W] / [S] or Up / Down Arrows: Pitch Nose Up / Down.
+- [TAB]: Toggle between Dual-Hand CV and Mouse/Keyboard modes.
+- [C]: Recalibrate neutral hand center.
+- [M]: Mute / Unmute audio effects.
+- [ESC]: Pause / Resume Flight Simulation.
+- [SPACE / ENTER]: Launch Sortie from Menu / Debrief.
+================================================================================
